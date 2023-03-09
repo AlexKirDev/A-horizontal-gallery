@@ -6,7 +6,7 @@ let photosArr = [
     'https://fastly.picsum.photos/id/1011/400/400.jpg?hmac=jvBe5mf7uDeDmAW3ktW1MawUOEOejOAaMOCgicg1pbc',
     'https://fastly.picsum.photos/id/639/600/400.jpg?hmac=CJcr_lMPnnOpRE740PYPKs1utaFHp5T0Sdauu_rFvOk',
     'https://fastly.picsum.photos/id/908/500/200.jpg?hmac=5wy4gD3tpo2-B8F-AafDBTBHcjWkbZTO9rHpheqGQWY',
-    'https://fastly.picsum.photos/id/195/400/400.jpg?hmac=Y84r3gSy17PW0dZ9VysjSaFc4v67rz2GxMMcGTKubQQ',
+    'https://fastly.picsum.photos/id/177/400/400.jpg?hmac=aVgfzmAJ4tG-EzJLqqeY46vHKmUGnlqQPo53s8Qrh0U',
     'https://fastly.picsum.photos/id/388/300/600.jpg?hmac=zZ4nKq81O4sqrUgCosl6oHtEDb9GlivkpcxFM4S-O2A',
     'https://fastly.picsum.photos/id/362/300/500.jpg?hmac=pfUsVadgiCD9DiRlwiUoECweomyJkRGtF8AjCCAMEbw',
     'https://fastly.picsum.photos/id/552/500/200.jpg?hmac=128NOJla98fTJNIj4HMnEr7UqzDT9R0u-GS6S41AAD4',
@@ -14,7 +14,7 @@ let photosArr = [
     'https://fastly.picsum.photos/id/83/600/400.jpg?hmac=Aj4sMjRJ9FGtVCVKrjiFvkl5htGFb9Lb2yN0Fp8s-yw',
     'https://fastly.picsum.photos/id/946/300/200.jpg?hmac=aXMoUqLcaPHPnB6JRMDKaN7QfWJr9GrwfStB2va-kjA',
     'https://fastly.picsum.photos/id/715/400/400.jpg?hmac=eSRpFZ17S87USTAUHim-QFoP0orOPeqMpnOSlxCpGto',
-    'https://fastly.picsum.photos/id/195/400/400.jpg?hmac=Y84r3gSy17PW0dZ9VysjSaFc4v67rz2GxMMcGTKubQQ',
+    'https://fastly.picsum.photos/id/581/400/400.jpg?hmac=hwxtFszmLrsPiu7tNwSekrVbiD-QTBhbhFFo27A4H38',
     'https://fastly.picsum.photos/id/976/600/600.jpg?hmac=5QDAHt_d9TcUZbiOO5QpZG1XoCxWcWeRfQlQJ3JNSk8',
     'https://fastly.picsum.photos/id/195/400/400.jpg?hmac=Y84r3gSy17PW0dZ9VysjSaFc4v67rz2GxMMcGTKubQQ',
     'https://fastly.picsum.photos/id/698/500/200.jpg?hmac=SqDvpfvade6cstW3leds3SaKydF4C8oWkpBiXQo8Cek',
@@ -22,11 +22,11 @@ let photosArr = [
 ]
 
 let leftArr = [
-    '10vh','45vh','95vh','120vh','135vh','155vh','176vh','220vh','248vh','267vh','290vh','311vh','337vh','385vh','399vh','465vh','493vh','10vh','10vh','10vh','10vh','10vh','10vh','10vh','10vh','10vh',
+    '10vh','45vh','95vh','120vh','135vh','155vh','176vh','220vh','248vh','267vh','290vh','311vh','337vh','385vh','399vh','465vh','493vh',
 ]
 
 let topArr = [
-    '25vh','8vh','52vh','11vh','24vh','35vh','5vh','28vh','11vh','49vh','5vh','33vh','17vh','29vh','6vh','17vh','31vh','335vh','335vh','335vh','335vh','335vh','335vh','335vh','335vh','335vh','335vh','335vh','335vh','335vh','335vh','335vh','335vh','335vh','335vh',
+    '25vh','8vh','52vh','11vh','24vh','35vh','5vh','28vh','11vh','49vh','5vh','33vh','17vh','29vh','6vh','17vh','31vh',
 ]
 
 let widthArr = [
@@ -38,7 +38,7 @@ let heightArr = [
 ]
 
 let speedArr = [
-
+  '100', '300','150','200','100','200','300','150','100','200','100','300','150','100','200','150','100',
 ]
 
 let mainWrapper = document.querySelector('.main-wrapper')
@@ -61,36 +61,111 @@ for (let i = 1; i <= 17; i++) {
 
 let cards = document.querySelectorAll('.card');
 
-// console.log(mainWrapper.childNodes[0])
-// console.log(mainWrapper.children[0])
-// let test = mainWrapper.childNodes[0]
-// test.style.transform = 'translateX(190px)'
-
-// function moveItems(e) {
-//     e.preventDefault();
-//     cards.forEach((card)=> {
-//         card.style.transform = 'translateX(40px)'
-//     })
-//     return
-// }
-//
-// document.addEventListener('wheel', moveItems, {passive: false})
+function addSpeedToCards() {
+    let i = 0
+    cards.forEach((item)=>{
+        item.setAttribute('speed', speedArr[i]);
+        i++
+    })
+}
+addSpeedToCards();
 
 let currentPos = 0
 
+// mainWrapper.addEventListener('wheel', function(e) {
+//     console.log(e.deltaY)
+//
+//     if (e.deltaY > 0) {
+//         currentPos -= 200;
+//         console.log(currentPos)
+//         let textPos = 'translateX(' + currentPos + 'px)';
+//         cards.forEach((card) => {
+//             card.style.transform = textPos
+//             card.style.transition = 'transform 1s ease'
+//             let blabla = cards[0].getBoundingClientRect().left
+//             console.log(blabla)
+//         });
+//         e.preventDefault();
+//     } else {
+//         currentPos += 200;
+//         console.log(currentPos)
+//         let textPos = 'translateX(' + currentPos + 'px)';
+//         cards.forEach((card) => {
+//             card.style.transform = textPos
+//             card.style.transition = 'transform 1s ease'
+//         });
+//         e.preventDefault();
+//     }
+// })
+
+
 mainWrapper.addEventListener('wheel', function(e) {
-    e.preventDefault();
-    currentPos -= 300;
-    console.log(currentPos)
-    let textPos = 'translateX(' + currentPos + 'px)';
-    cards.forEach((card)=> {
-        card.style.transform = textPos
-    });
+    cards.forEach((card)=>{
+        let currentPosition = card.getBoundingClientRect().left;
+        let newPosition;
+
+        if (e.deltaY > 0) {
+            newPosition = currentPosition - Number(card.getAttribute('speed'))*2
+            let newTextPosition = newPosition + 'px'
+            card.style.left = newTextPosition
+            card.style.transition = 'left 1s ease'
+
+            // let textNewPosition = 'translateX(' + newPosition + 'px)';
+            // card.style.transform = textNewPosition
+            } else {
+            newPosition = currentPosition + Number(card.getAttribute('speed'))*2
+            let newTextPosition = newPosition + 'px'
+            card.style.left = newTextPosition
+            card.style.transition = 'left 1s ease'
+        }
+
+        })
+
     e.preventDefault();
 })
 
+cards.forEach((card)=>{
+    let child = card.firstChild
+    let cardSrc = child.getAttribute('src')
+    let currentOpenedCard
+    let currentOpenedImg
+
+    console.log(child)
+    console.log(cardSrc)
+
+    card.addEventListener('click',(e)=>{
+
+        let newImage = document.createElement('img')
+        let newDiv = document.createElement('div')
+        let newWrapper = document.createElement('div')
+
+        mainWrapper.append(newWrapper)
+        newWrapper.append(newDiv)
+        newDiv.append(newImage)
+
+        newWrapper.classList.add('modalWindowWrapper')
+        newDiv.classList.add('modalWindow')
+        newImage.classList.add('modalImage')
+        newImage.setAttribute('src', cardSrc)
+        console.log(cardSrc)
+        currentOpenedCard = newWrapper
+
+        newWrapper.addEventListener('click', e => {
+
+            if (!e.target.classList.contains('modalImage')) {
+                newWrapper.style.display = 'none'
+            }
+        })
 
 
+    })
 
+})
 
+// let modalWrapper = document.querySelector('.modalWindowWrapper')
+// modalWrapper.addEventListener('click', e => {
+//     if (e.target.classList.contains('modalImage')) {
+//         modalWrapper.style.display = 'mone'
+//     }
+// })
 
