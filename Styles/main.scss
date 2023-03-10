@@ -36,6 +36,7 @@ html, body {
   &:hover img {
     filter: none;
     cursor: pointer;
+    transition: opacity 1s ease;
   }
   transition: z-index 1s ease;
   transition: transform 1s ease;

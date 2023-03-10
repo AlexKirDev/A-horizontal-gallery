@@ -32,7 +32,8 @@ html, body {
     transition: opacity 1s ease; }
   .card:hover img {
     filter: none;
-    cursor: pointer; }
+    cursor: pointer;
+    transition: opacity 1s ease; }
 
 img {
   width: 100%;
