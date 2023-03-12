@@ -2,7 +2,7 @@
 let photosArr = [
     'https://fastly.picsum.photos/id/371/600/600.jpg?hmac=9nKOTKqQtybe7WlTf5tGcdUfm7E3qy433wGEzji7J5M',
     'https://fastly.picsum.photos/id/1011/400/400.jpg?hmac=jvBe5mf7uDeDmAW3ktW1MawUOEOejOAaMOCgicg1pbc',
-    'https://fastly.picsum.photos/id/639/600/400.jpg?hmac=CJcr_lMPnnOpRE740PYPKs1utaFHp5T0Sdauu_rFvOk',
+    'https://fastly.picsum.photos/id/308/600/400.jpg?hmac=7OkFoJc-gMzMAs3LRlECDU18iS2aLizfB0AzcRNpl1A',
     'https://fastly.picsum.photos/id/908/500/200.jpg?hmac=5wy4gD3tpo2-B8F-AafDBTBHcjWkbZTO9rHpheqGQWY',
     'https://fastly.picsum.photos/id/177/400/400.jpg?hmac=aVgfzmAJ4tG-EzJLqqeY46vHKmUGnlqQPo53s8Qrh0U',
     'https://fastly.picsum.photos/id/388/300/600.jpg?hmac=zZ4nKq81O4sqrUgCosl6oHtEDb9GlivkpcxFM4S-O2A',
@@ -36,7 +36,7 @@ let heightArr = [
 ]
 
 let speedArr = [
-  '100', '300','150','200','100','200','300','150','100','200','100','300','150','100','200','150','100',
+  '100', '300','150','200','100','200','300','150','100','200','100','300','150','100','200','150','300',
 ]
 
 let mainWrapper = document.querySelector('.main-wrapper')
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
         card.moveLeft = function () {
 
-            card.newPositionAccumulator -= Number(card.getAttribute('speed'))
+            card.newPositionAccumulator -= (Number(card.getAttribute('speed')))*2
 
             let newPosition = card.newPositionAccumulator + card.startPosition
 
@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         }
         card.moveRight = function () {
 
-            card.newPositionAccumulator += Number(card.getAttribute('speed'))
+            card.newPositionAccumulator += (Number(card.getAttribute('speed')))*2
 
             let newPosition = card.newPositionAccumulator + card.startPosition
 
