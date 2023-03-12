@@ -41,8 +41,6 @@ let speedArr = [
 
 let mainWrapper = document.querySelector('.main-wrapper')
 
-//создаем карточки, "вешаем" на них все, что требуется
-
 for (let i = 1; i <= 17; i++) {
     let newDiv = document.createElement('div')
     mainWrapper.append(newDiv)
@@ -55,80 +53,28 @@ for (let i = 1; i <= 17; i++) {
     let newImage = document.createElement('img')
     newDiv.append(newImage)
     newImage.setAttribute('src', photosArr[i - 1])
-
 }
 
 let cards = document.querySelectorAll('.card');
-
-
-// function addSpeedToCards() {
-//     let i = 0
-//     cards.forEach((item)=>{
-//         item.setAttribute('speed', speedArr[i]);
-//         i++
-//     })
-// }
-// addSpeedToCards();
-
-//вариант горизонтального скролла №1
-// mainWrapper.addEventListener('wheel', function(e) {
-//     cards.forEach((card)=>{
-//         let currentPosition = card.getBoundingClientRect().left;
-//         let newPosition;
-//
-//         if (e.deltaY > 0) {
-//             newPosition = currentPosition - Number(card.getAttribute('speed'))*2
-//             let newTextPosition = newPosition + 'px'
-//             card.style.left = newTextPosition
-//             card.style.transition = 'left 1s ease'
-//
-//             // let textNewPosition = 'translateX(' + newPosition + 'px)';
-//             // card.style.transform = textNewPosition
-//             } else {
-//             newPosition = currentPosition + Number(card.getAttribute('speed'))*2
-//             let newTextPosition = newPosition + 'px'
-//             card.style.left = newTextPosition
-//             card.style.transition = 'left 1s ease'
-//             }
-//         })
-//     e.preventDefault();
-// })
-
-//вариант горизонтального скролла №2
-
-//1. Фиксируем стартовое положение карт, делаем его неизменяемым, добавляем методы "влево-вправо"
 document.addEventListener("DOMContentLoaded", ()=>{
     cards.forEach((card) => {
         card.speed = card.getAttribute('speed')
         Object.defineProperty(card, 'startPosition', {value: card.getBoundingClientRect().left, writable: false})
         card.newPositionAccumulator = 0
-
         card.moveLeft = function () {
-
             card.newPositionAccumulator -= (Number(card.getAttribute('speed')))*2
-
             let newPosition = card.newPositionAccumulator + card.startPosition
-
             let newTextPosition = newPosition + 'px'
             card.style.left = newTextPosition
-            // card.style.transition = 'left 1s ease'
-
         }
         card.moveRight = function () {
-
             card.newPositionAccumulator += (Number(card.getAttribute('speed')))*2
-
             let newPosition = card.newPositionAccumulator + card.startPosition
-
             let newTextPosition = newPosition + 'px'
             card.style.left = newTextPosition
-            // card.style.transition = 'left 1s ease'
-
         }
-
     })
 })
-
 mainWrapper.addEventListener('wheel', (e)=> {
     cards.forEach((card) => {
         if (e.deltaY > 0) {
@@ -138,16 +84,11 @@ mainWrapper.addEventListener('wheel', (e)=> {
         }
     })
 })
-
-//модальное окно при клике на карточку
 cards.forEach((card)=>{
     let child = card.firstChild
     let cardSrc = child.getAttribute('src')
     let currentOpenedCard
     let currentOpenedImg
-
-    // console.log(child)
-    // console.log(cardSrc)
 
     card.addEventListener('click',(e)=>{
 
@@ -158,14 +99,12 @@ cards.forEach((card)=>{
         mainWrapper.append(newWrapper)
         newWrapper.append(newDiv)
         newDiv.append(newImage)
-
         newWrapper.classList.add('modalWindowWrapper')
         newDiv.classList.add('modalWindow')
         newImage.classList.add('modalImage')
         newImage.setAttribute('src', cardSrc)
         console.log(cardSrc)
         currentOpenedCard = newWrapper
-
         newWrapper.addEventListener('click', e => {
 
             if (!e.target.classList.contains('modalImage')) {
@@ -173,8 +112,9 @@ cards.forEach((card)=>{
             }
         })
     })
-
 })
+
+
 
 
 

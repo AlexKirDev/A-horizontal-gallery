@@ -12,12 +12,6 @@ html, body {
   background-color: #ddd;
   white-space: nowrap; }
 
-.testcard {
-  position: relative;
-  width: 400px;
-  height: 400px;
-  background-image: url("https://fastly.picsum.photos/id/639/600/400.jpg?hmac=CJcr_lMPnnOpRE740PYPKs1utaFHp5T0Sdauu_rFvOk"); }
-
 .card {
   display: inline-block;
   position: absolute;
