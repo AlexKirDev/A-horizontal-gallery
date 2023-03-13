@@ -41,8 +41,16 @@ let speedArr = [
 
 let mainWrapper = document.querySelector('.main-wrapper')
 
+
+class MyCards {
+    constructor(){
+    }
+    saySomething() {console.log('something')}
+}
+
 for (let i = 1; i <= 17; i++) {
     let newDiv = document.createElement('div')
+
     mainWrapper.append(newDiv)
     newDiv.classList.add('card')
     newDiv.style.left = leftArr[i - 1]
@@ -56,6 +64,8 @@ for (let i = 1; i <= 17; i++) {
 }
 
 let cards = document.querySelectorAll('.card');
+
+
 document.addEventListener("DOMContentLoaded", ()=>{
     cards.forEach((card) => {
         card.speed = card.getAttribute('speed')
@@ -113,9 +123,6 @@ cards.forEach((card)=>{
         })
     })
 })
-
-
-
 
 
 
